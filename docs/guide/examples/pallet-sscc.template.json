@@ -1,0 +1,18 @@
+{
+  "name": "pallet-sscc",
+  "widthMm": 100,
+  "heightMm": 100,
+  "dpi": 203,
+  "elements": [
+    { "type": "text", "x": 6, "y": 6, "text": "PALLET {{pallet}}", "heightMm": 7 },
+    { "type": "text", "x": 6, "y": 17, "text": "{{product}}", "heightMm": 4.5 },
+    {
+      "type": "gs1", "x": 6, "y": 28, "heightMm": 20, "moduleWidth": 2,
+      "fields": { "sscc": "{{sscc}}" }
+    },
+    {
+      "type": "gs1", "x": 6, "y": 58, "heightMm": 20, "moduleWidth": 2,
+      "fields": { "gtin": "{{gtin}}", "expiry": "{{expiry}}", "lot": "{{lot}}" }
+    }
+  ]
+}

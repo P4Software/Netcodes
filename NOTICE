@@ -1,0 +1,18 @@
+Netcodes
+Copyright 2026 P4 Software
+
+This product is licensed under the Apache License, Version 2.0 (see LICENSE).
+
+This product includes software and fonts developed by third parties:
+
+- SkiaSharp (MIT License), https://github.com/mono/SkiaSharp
+  Used to draw the PNG preview.
+- ZXing.Net (Apache License 2.0), https://github.com/micjahn/ZXing.Net
+  Used to encode barcodes (Code 128, Code 39, Code 93, Codabar, MSI, EAN-13, UPC-A, Interleaved 2 of 5, QR, Data Matrix,
+  Aztec, PDF417).
+- System.Drawing.Common (MIT License), https://github.com/dotnet/runtime
+  Used only to list the printers installed in Windows.
+- DejaVu Sans and DejaVu Sans Mono fonts (Bitstream Vera and DejaVu licence, free to use and redistribute),
+  https://dejavu-fonts.github.io/
+  Embedded in Netcodes.Zpl so the preview works on machines with no fonts installed. The licence text is kept next to the
+  fonts in src/Netcodes.Zpl/Fonts/LICENSE-DejaVu.txt and must travel with them.

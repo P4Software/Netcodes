@@ -1,0 +1,25 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build-and-test:
+    # Windows: the PNG preview needs SkiaSharp's native files, and only the Windows ones are bundled so far.
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+
+      # Warnings are errors, and every public member needs an XML doc comment.
+      - name: Build
+        run: dotnet build --configuration Release -warnaserror
+
+      # The Labelary comparison tests need internet and are run on purpose, not here.
+      - name: Test
+        run: dotnet test --configuration Release --no-build --filter "Category!=Labelary"

@@ -1,0 +1,10 @@
+{
+  "order": "SO-20991",
+  "customer": "Ferreteria Cia",
+  "lines": [
+    { "sku": "HX-100", "description": "Hex bolt M10x40", "qty": 200 },
+    { "sku": "HX-220", "description": "Hex nut M10", "qty": 200 },
+    { "sku": "WS-040", "description": "Washer 10 mm", "qty": 400 },
+    { "sku": "DR-7", "description": "Drill bit set (7)", "qty": 6 }
+  ]
+}

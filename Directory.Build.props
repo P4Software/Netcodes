@@ -1,0 +1,19 @@
+<Project>
+  <!-- One set of rules and one version for every Netcodes project. -->
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <LangVersion>latest</LangVersion>
+    <Version>0.1.0</Version>
+    <!-- Package metadata, shared by every project (used when the packages are published). -->
+    <Authors>P4 Software</Authors>
+    <Company>P4 Software</Company>
+    <Copyright>Copyright 2026 P4 Software</Copyright>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/P4Software/Netcodes</RepositoryUrl>
+    <!-- Public API must be documented; a missing XML doc comment fails the build. -->
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <WarningsAsErrors>$(WarningsAsErrors);CS1591</WarningsAsErrors>
+  </PropertyGroup>
+</Project>

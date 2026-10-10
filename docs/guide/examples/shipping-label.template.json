@@ -1,0 +1,16 @@
+{
+  "name": "shipping-label",
+  "widthMm": 100,
+  "heightMm": 150,
+  "dpi": 203,
+  "elements": [
+    { "type": "box", "x": 3, "y": 3, "widthMm": 94, "heightMm": 144, "borderMm": 0.6 },
+    { "type": "text", "x": 8, "y": 8, "text": "SHIP TO", "heightMm": 3.5 },
+    { "type": "text", "x": 8, "y": 14, "text": "{{name}}", "heightMm": 7 },
+    { "type": "text", "x": 8, "y": 24, "text": "{{street}}", "heightMm": 5 },
+    { "type": "text", "x": 8, "y": 31, "text": "{{city}}, {{country}}", "heightMm": 5 },
+    { "type": "barcode", "symbology": "code128", "x": 8, "y": 50, "data": "{{tracking}}", "heightMm": 25, "moduleWidth": 3 },
+    { "type": "qr", "x": 8, "y": 95, "data": "{{url}}", "size": 5, "errorCorrection": "M" },
+    { "type": "text", "x": 60, "y": 130, "text": "Order {{order}}", "heightMm": 4, "rotation": 0 }
+  ]
+}

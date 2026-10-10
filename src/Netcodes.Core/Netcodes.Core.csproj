@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\Netcodes.Template\Netcodes.Template.csproj" />
+    <ProjectReference Include="..\Netcodes.Zpl\Netcodes.Zpl.csproj" />
+    <ProjectReference Include="..\Netcodes.Printing\Netcodes.Printing.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+  </PropertyGroup>
+
+</Project>

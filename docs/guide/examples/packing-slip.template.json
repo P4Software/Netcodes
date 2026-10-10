@@ -1,0 +1,20 @@
+{
+  "name": "packing-slip",
+  "widthMm": 100,
+  "heightMm": 150,
+  "dpi": 203,
+  "elements": [
+    { "type": "text", "x": 6, "y": 6, "text": "PACKING SLIP", "heightMm": 6 },
+    { "type": "text", "x": 6, "y": 15, "text": "Order {{order}}  -  {{customer}}", "heightMm": 3.5 },
+    { "type": "box", "x": 6, "y": 23, "widthMm": 88, "heightMm": 0.4, "filled": true },
+    {
+      "type": "repeat", "source": "lines", "x": 6, "y": 26, "rowHeightMm": 7, "maxRows": 15,
+      "elements": [
+        { "type": "text", "x": 0, "y": 0, "text": "{{index}}.", "heightMm": 3.5 },
+        { "type": "text", "x": 8, "y": 0, "text": "{{item.sku}}", "heightMm": 3.5 },
+        { "type": "text", "x": 30, "y": 0, "text": "{{item.description}}", "heightMm": 3.5, "maxWidthMm": 46, "maxLines": 1 },
+        { "type": "text", "x": 78, "y": 0, "text": "x{{item.qty}}", "heightMm": 3.5 }
+      ]
+    }
+  ]
+}
