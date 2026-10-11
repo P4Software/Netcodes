@@ -12,8 +12,18 @@
     <Copyright>Copyright 2026 P4 Software</Copyright>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/P4Software/Netcodes</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/P4Software/Netcodes</PackageProjectUrl>
+    <PackageTags>zpl;zebra;label;barcode;qr;printing;thermal</PackageTags>
+    <Description>Create, preview and print Zebra ZPL labels from .NET.</Description>
+    <PackageIcon>icon.png</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
     <!-- Public API must be documented; a missing XML doc comment fails the build. -->
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <WarningsAsErrors>$(WarningsAsErrors);CS1591</WarningsAsErrors>
   </PropertyGroup>
+  <!-- The package icon and README shown on nuget.org (only packed when a project is packed). -->
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)docs/brand/icon-512.png" Pack="true" PackagePath="icon.png" Visible="false" />
+    <None Include="$(MSBuildThisFileDirectory)README.md" Pack="true" PackagePath="README.md" Visible="false" />
+  </ItemGroup>
 </Project>

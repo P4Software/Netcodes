@@ -1,23 +1,75 @@
-# Netcodes
+<div align="center">
 
-Create, preview and print **ZPL labels** for Zebra thermal printers from .NET, without paying thousands a year for
-legacy label software.
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/brand/logo-dark.svg">
+  <img src="docs/brand/logo-light.svg" alt="Netcodes" width="560">
+</picture>
 
-Programmers who print ZPL labels today usually pick between two extremes: a free preview such as Labelary, which has no
-templates, no designer and no printing, or a commercial label SDK that does everything but is licensed per developer and
-tied to its own designer. Netcodes covers the middle: open source, code-first, and small enough to read.
+<br>
 
-With Netcodes you describe a label as JSON, merge your data into it, get ZPL, see a PNG preview, and send it to a printer,
-all in-process, with no server and no per-seat licence checks.
+**Design, preview and print Zebra labels from .NET, in a few lines of code.**<br>
+Open source. No server. No per-seat licence checks.
 
-> **Status: pre-release (0.1.0).** The engine (templates, ZPL generation, preview, printing) is built and tested. It is not
-> on NuGet yet, and the web API and the visual designer are planned. See [what works today](#what-works-today).
+<br>
 
-![A shipping label rendered by Netcodes](docs/guide/images/shipping-label.png)
+[![CI](https://github.com/P4Software/Netcodes/actions/workflows/ci.yml/badge.svg)](https://github.com/P4Software/Netcodes/actions/workflows/ci.yml)
+[![Licence: Apache-2.0](https://img.shields.io/badge/licence-Apache--2.0-4338CA.svg)](LICENSE)
+![.NET 10](https://img.shields.io/badge/.NET-10-512BD4.svg)
+![ZPL](https://img.shields.io/badge/Zebra-ZPL-0F172A.svg)
+![Status: pre-release](https://img.shields.io/badge/status-pre--release%200.1.0-orange.svg)
+
+[**Your first label in 10 minutes**](docs/guide/first-label-for-beginners.md) &nbsp;·&nbsp;
+[Guides](#the-guides) &nbsp;·&nbsp;
+[What works today](#what-works-today) &nbsp;·&nbsp;
+[Security](SECURITY.md)
+
+<br>
+
+<img src="docs/brand/how-it-works.png" alt="A JSON template and your data become ZPL, which becomes a label preview and a printed label" width="900">
+
+</div>
+
+<br>
+
+## Why Netcodes
+
+Printing a Zebra label from your own software usually means choosing between two extremes: a free preview website with
+no templates and no printing, or a commercial label SDK that costs thousands per developer per year and ties you to its
+own designer.
+
+Netcodes is the middle path. You describe a label as plain JSON, merge your data into it, and get ZPL, a PNG preview
+and a printed label, all inside your own .NET application.
+
+|  |  |
+|---|---|
+| **Open source** | Apache-2.0. Use it, change it and ship it in commercial products. |
+| **Code first** | Templates are JSON files you can keep in Git, review and test. |
+| **See before you print** | The preview is drawn from the very ZPL that is sent to the printer. |
+| **Safe by default** | Printing is a dry run until you ask for a real print. Bad input becomes a warning, never a crash. |
+| **Tested against the real thing** | Compared with Labelary's renderer, and printed on a Zebra ZD621R. |
+| **Small** | A handful of projects with few dependencies, small enough to read. |
+
+## See it
+
+<table>
+  <tr>
+    <td align="center"><img src="docs/guide/images/shipping-label.png" alt="Shipping label with address, barcode and QR code" height="320"><br><sub><b>Shipping label</b><br>text, Code 128, QR</sub></td>
+    <td align="center"><img src="docs/guide/images/packing-slip.png" alt="Packing slip with repeated item rows" height="320"><br><sub><b>Packing slip</b><br>repeated rows</sub></td>
+    <td align="center"><img src="docs/guide/images/pallet-sscc.png" alt="Pallet label with GS1-128 SSCC barcodes" height="320"><br><sub><b>Pallet label</b><br>GS1-128 (SSCC)</sub></td>
+    <td align="center"><img src="docs/guide/images/all-barcodes.png" alt="Every supported barcode type" height="320"><br><sub><b>Every barcode</b><br>13 symbologies</sub></td>
+    <td align="center"><img src="docs/guide/images/logo-label.png" alt="A label with a company logo" height="320"><br><sub><b>Pictures</b><br>logos as graphics</sub></td>
+  </tr>
+</table>
+
+Each of these is a real example in [`docs/guide/examples`](docs/guide/examples), and the test suite runs every one.
 
 ## Quick start
 
-You need the .NET 10 SDK. Until the first NuGet release, add a project reference to `src/Netcodes.Core/Netcodes.Core.csproj`.
+New to this? Follow the [step-by-step guide for beginners](docs/guide/first-label-for-beginners.md). It assumes
+nothing.
+
+Already a .NET developer? You need the .NET 10 SDK. Until the first NuGet release, add a project reference to
+`src/Netcodes.Core/Netcodes.Core.csproj`.
 
 A label is a template (JSON, with `{{placeholders}}`) plus your data (JSON):
 
@@ -78,12 +130,22 @@ You can also skip templates and preview or print ZPL you wrote by hand: `engine.
 | Printing | network printers on port 9100, or a Windows printer queue; dry run by default |
 | Printer settings | speed, darkness, media type, copies, label shift, print mode, media tracking, inverted print, save/recall settings |
 
-Not built yet: the web API, the API client package, the visual designer, EPL and CPCL, and the ZPL commands listed under
-[not supported](docs/guide/zpl-support.md#not-supported-yet).
+## Roadmap
+
+| | |
+|---|---|
+| ✅ **Engine** | templates, ZPL generation, preview, printing (this repository) |
+| 🔜 **NuGet packages** | `dotnet add package`, with Linux and macOS preview support |
+| 🔜 **Web API** | the same engine as an HTTP service, with an API client package |
+| 🔜 **Visual designer** | a drag-and-drop label designer you can embed in your own application (planned as a separate commercial product) |
+| 💭 **EPL and CPCL** | other printer languages |
+
+The ZPL commands that are not understood yet are listed under [not supported](docs/guide/zpl-support.md#not-supported-yet).
 
 ## The guides
 
-- [Getting started](docs/guide/getting-started.md): a first label, step by step, and the example gallery
+- [Your first label for beginners](docs/guide/first-label-for-beginners.md): zero to a printed label, step by step
+- [Getting started](docs/guide/getting-started.md): the same ideas in more depth, and the example gallery
 - [Template reference](docs/guide/template-reference.md): every element and every setting
 - [Printing](docs/guide/printing.md): printers, dry runs, copies, printer settings, safety
 - [ZPL support](docs/guide/zpl-support.md): what the preview understands, and how close it is to a real printer
@@ -109,7 +171,7 @@ dotnet test --filter "Category!=Labelary"
 ```
 
 A few extra tests compare the preview with Labelary's and need internet: `dotnet test --filter "Category=Labelary"`.
-The examples in the guides are run by the test suite, so they stay correct.
+The examples in the guides are run by the test suite, so they stay correct. See [CONTRIBUTING](CONTRIBUTING.md) to help.
 
 ## Licence
 
@@ -117,4 +179,7 @@ The Netcodes engine (everything in this repository) is open source under the [Ap
 change and ship, including in commercial products. Third-party components and their licences are listed in
 [NOTICE](NOTICE).
 
-A visual label designer that embeds in your own application is planned as a separate, commercial product.
+<div align="center">
+<br>
+<sub>Made by <b>P4 Software</b></sub>
+</div>
